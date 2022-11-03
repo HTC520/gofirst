@@ -1,8 +1,9 @@
-package com.gofirst.hello;
+package com.gofirst.user;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.core.env.Environment;
 
@@ -10,19 +11,21 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 /**
- * @author : KKQ  2022/11/3 0003 12:48 我是中国人，我爱自己的祖国
- * @apiNote : Hello启动类,不连接数据库则排除
+ * @author : KKQ  2022/11/3 0003 15:40 我是中国人，我爱自己的祖国
+ * @apiNote : user启动类
  **/
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
-public class HelloApplication {
+@SpringBootApplication
+@EnableDiscoveryClient
+@MapperScan("com.gofirst.user.mapper")
+public class UserApplication {
     public static void main(String[] args) throws UnknownHostException {
-        ConfigurableApplicationContext context = SpringApplication.run(HelloApplication.class, args);
+        ConfigurableApplicationContext context = SpringApplication.run(UserApplication.class, args);
         Environment env = context.getEnvironment();
         String ip = InetAddress.getLocalHost().getHostAddress();
         String port = env.getProperty("server.port");
         String path = env.getProperty("server.servlet.context-path") == null ? "" : env.getProperty("server.servlet.context-path");
         System.out.println("\n----------------------------------------------------------\n\t" +
-                "Application Hello is running! Access URLs:\n\t" +
+                "Application User is running! Access URLs:\n\t" +
                 "Local: \t\thttp://localhost:" + port + path + "/\n\t" +
                 "External: \thttp://" + ip + ":" + port + path + "/\n\t" +
                 "Knife4j文档: \thttp://" + ip + ":" + port + path + "/doc.html\n\t" +
@@ -30,5 +33,3 @@ public class HelloApplication {
                 "----------------------------------------------------------");
     }
 }
-
-
