@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="go-first-feign-api" />
+        <module name="go-first-utils" />
+        <module name="go-first-hello" />
+        <module name="go-first-model" />
+        <module name="go-first-common" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="go-first-common" options="-parameters" />
+      <module name="go-first-feign-api" options="-parameters" />
+      <module name="go-first-gateway" options="" />
+      <module name="go-first-hello" options="-parameters" />
+      <module name="go-first-model" options="-parameters" />
+      <module name="go-first-service" options="" />
+      <module name="go-first-utils" options="-parameters" />
+    </option>
+  </component>
+</project>

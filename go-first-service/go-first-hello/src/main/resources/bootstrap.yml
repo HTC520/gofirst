@@ -1,0 +1,12 @@
+server:
+  port: 9999
+spring:
+  application:
+    name: hello-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 8.136.186.211:8848
+      config:
+        server-addr: 8.136.186.211:8848
+        file-extension: yml

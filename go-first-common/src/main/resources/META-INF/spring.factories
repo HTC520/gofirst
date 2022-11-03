@@ -1,0 +1,8 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.gofirst.common.exception.ExceptionCatch,\
+  com.gofirst.common.swagger.SwaggerConfiguration,\
+  com.gofirst.common.swagger.Swagger2Configuration,\
+  com.gofirst.common.aliyun.GreenTextScan,\
+  com.gofirst.common.aliyun.GreenImageScan,\
+  com.gofirst.common.redis.CacheService,\
+  com.gofirst.common.jackson.InitJacksonConfig
