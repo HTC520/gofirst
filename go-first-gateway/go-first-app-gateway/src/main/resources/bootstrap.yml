@@ -1,0 +1,12 @@
+server:
+  port: 51601
+spring:
+  application:
+    name: gofirst-app-gateway
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 8.136.186.211:8848
+      config:
+        server-addr: 8.136.186.211:8848
+        file-extension: yml
