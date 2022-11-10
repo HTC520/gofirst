@@ -14,6 +14,7 @@
         <module>go-first-feign-api</module>
         <module>go-first-gateway</module>
         <module>go-first-service</module>
+        <module>go-first-test</module>
     </modules>
     <packaging>pom</packaging>
 
