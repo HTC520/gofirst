@@ -11,8 +11,22 @@ public class MiniDuckSimulation {
     public static void main(String[] args) {
         MallardDuck mallardDuck = new MallardDuck();
         // 动态扩展, 不同的鸭子有不同的叫声, 但是可以通过扩展动态修改
-        mallardDuck.setQuackBehavior(new Squeak());
+        // 假如外部选择了不同的行为来组合
+        String quack = "METE_QUACK";
+        if ("METE_QUACK".equals(quack)){
+            mallardDuck.setQuackBehavior(new MuteQuack());   
+        }else if ("SQUEAK".equals(quack)){
+            mallardDuck.setQuackBehavior(new Squeak());
+        }else {
+            mallardDuck.setQuackBehavior(new Quack());
+        }        
         mallardDuck.performFly();
+        mallardDuck.performQuack();
+        
+        //**********************************//
+        // 此处则是使用工厂模式来动态扩展, 免除了大量的if else 代码,以达到简化的效果
+        QuackBehavior squeak = QuackFactory.getQuackBehavior(quack);
+        mallardDuck.setQuackBehavior(squeak);
         mallardDuck.performQuack();
     }
 }
